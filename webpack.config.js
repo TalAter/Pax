@@ -1,7 +1,9 @@
+var path = require("path");
+
 module.exports = {
   entry: "./src/entry.js",
   output: {
-    path: `${__dirname}/dist`,
+    path: path.resolve(__dirname, "dist"),
     filename: "ptt.js"
   }
 };
