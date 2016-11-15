@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/TalAter/ptt/issues"
   },
-  "homepage": "https://github.com/TalAter/ptt#readme"
+  "homepage": "https://github.com/TalAter/ptt#readme",
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
 }
