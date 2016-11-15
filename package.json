@@ -1,0 +1,22 @@
+{
+  "name": "ptt",
+  "version": "0.1.0",
+  "description": "Push comes to shove",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TalAter/ptt.git"
+  },
+  "keywords": [
+    "push"
+  ],
+  "author": "Tal Ater <tal@talater.com> (https://www.talater.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TalAter/ptt/issues"
+  },
+  "homepage": "https://github.com/TalAter/ptt#readme"
+}
