@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/TalAter/ptt#readme",
   "devDependencies": {
+    "eslint": "^3.10.2",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-react": "^6.7.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   }
