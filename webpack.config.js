@@ -16,6 +16,16 @@ module.exports = {
         loaders: ['eslint-loader'],
         exclude: /node_modules/
       }
+    ],
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
+      }
     ]
   },
   plugins: [
