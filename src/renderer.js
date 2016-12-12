@@ -14,10 +14,15 @@ const render = function() {
   renderer.render(scene, camera);
 };
 
+const setBackgroundColor = function(color) {
+  scene.background = new THREE.Color( color );
+};
+
 /**
  * Expose functionality
  */
 export default {
   render,
-  init
+  init,
+  setBackgroundColor
 };
