@@ -15,6 +15,14 @@ const init = function() {
   renderer = new THREE.WebGLRenderer();
   renderer.setSize( width, height );
 
+  let ambientLight = new THREE.AmbientLight( 0xaaaaaa );
+  scene.add(ambientLight);
+
+  let directionalLight = new THREE.DirectionalLight(0xffffff);
+  directionalLight.position.set(-0.3, 0.7, 0.6);
+  directionalLight.position.normalize();
+  scene.add(directionalLight);
+
   document.body.appendChild( renderer.domElement );
 };
 
