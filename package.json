@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/TalAter/ptt#readme",
   "devDependencies": {
-    "babel-core": "^6.18.2",
+    "babel-core": "^6.21.0",
     "babel-loader": "^6.2.9",
     "babel-preset-es2015": "^6.18.0",
     "eslint": "^3.12.1",
