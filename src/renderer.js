@@ -20,7 +20,6 @@ const init = function() {
   const maxX = 100;
   const maxY = 100;
   let heightMap = Terrain.generate(maxX, maxY);
-  heightMap[1][1] = 0.2;
 
   let geometry = new THREE.PlaneGeometry(2500, 2500, maxX-1, maxY-1);
   geometry.rotateX(-Math.PI / 2);
