@@ -4,7 +4,7 @@ const average = numbers => {
   return total / valid.length;
 };
 
-const terrainObject = function(detailLevel) {
+const terrainObject = (detailLevel) => {
   const size = Math.pow(2, detailLevel) + 1;
   let heightMap = new Float32Array(size * size);
   return {

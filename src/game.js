@@ -4,7 +4,7 @@ import Terrain from './terrain';
 /**
  * Initialize the game
  */
-const init = function() {
+const init = () => {
   renderer.init();
 
   // Generate some random terrain
@@ -18,14 +18,14 @@ const init = function() {
 /**
  * Update the state of the game at the beggining of each frame
  */
-const update = function() {
+const update = () => {
   render();
 };
 
 /**
  * Render the current state of the game to the view
  */
-const render = function() {
+const render = () => {
   renderer.render();
   requestAnimationFrame(update);
 };

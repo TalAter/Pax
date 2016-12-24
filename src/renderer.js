@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 var scene, camera, renderer;
 
-const init = function() {
+const init = () => {
   let width = window.innerWidth;
   let height = window.innerHeight;
 
@@ -45,11 +45,11 @@ const addPlane = (dimensionX, dimensionY, terrain) => {
   scene.add(mesh);
 };
 
-const render = function() {
+const render = () => {
   renderer.render(scene, camera);
 };
 
-const setBackgroundColor = function(color) {
+const setBackgroundColor = (color) => {
   scene.background = new THREE.Color(color);
 };
 
