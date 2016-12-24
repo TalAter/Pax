@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 
-var scene, camera, renderer;
+let scene, camera, renderer;
+
+const faceIndices = [ 'a', 'b', 'c' ];
 
 const init = () => {
   let width = window.innerWidth;
@@ -30,17 +32,39 @@ const addPlane = (dimensionX, dimensionY, terrain) => {
   let geometry = new THREE.PlaneGeometry(dimensionX, dimensionY, terrain.maxXY, terrain.maxXY);
   geometry.rotateX(-Math.PI / 2);
 
+  let maxHeight = 0;
+  let minHeight = 0;
+
+  // Set height
   let vertices = geometry.vertices;
   for (let y = 0; y <= terrain.maxXY; y++) {
     for (let x = 0; x <= terrain.maxXY; x++) {
       let vertexId = x + y * (terrain.maxXY + 1);
-      vertices[vertexId].y = terrain.get(x, y);
+      const height = terrain.get(x, y);
+      maxHeight = height > maxHeight ? height : maxHeight;
+      minHeight = height < minHeight ? height : minHeight;
+      vertices[vertexId].y = height;
     }
   }
+
+  const heightVariation = maxHeight - minHeight;
+
+  // Color vertices based on height
+  for (let faceId = 0; faceId < geometry.faces.length; faceId++) {
+    let face = geometry.faces[faceId];
+    for (let faceIndex = 0; faceIndex < 3; faceIndex++) {
+      let vertex = vertices[face[faceIndices[faceIndex]]];
+      const relativeHeight = (maxHeight - vertex.y) / heightVariation;
+      let vertexColor = new THREE.Color(0xce985b);
+      vertexColor.setHSL(0.0884,  relativeHeight/2 + 0.25, 0.75 - relativeHeight/2);
+      face.vertexColors[faceIndex] = vertexColor;
+    }
+  }
+
   geometry.computeFlatVertexNormals();
   // geometry.computeVertexNormals();
 
-  let material = new THREE.MeshLambertMaterial({ color: 0xce985b, shading: THREE.SmoothShading });
+  let material = new THREE.MeshLambertMaterial({ color: 0xce985b, shading: THREE.SmoothShading, vertexColors: THREE.VertexColors });
   let mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 };
