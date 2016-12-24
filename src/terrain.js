@@ -21,12 +21,12 @@ const terrainObject = (detailLevel) => {
  *
  * Code adapted from @hunterloftis (https://github.com/hunterloftis/playfuljs-demos/blob/gh-pages/terrain/index.html)
  */
-const diamondSquareGeneration = (terrain, roughness = 0.7) => {
+const diamondSquareGeneration = (terrain, roughness = 0.4) => {
   // Set corners
-  terrain.set(0, 0, 0.1);
-  terrain.set(terrain.maxXY, 0, 0.1);
-  terrain.set(0, terrain.maxXY, 0.1);
-  terrain.set(terrain.maxXY, terrain.maxXY, 0.1);
+  terrain.set(0, 0, Math.random());
+  terrain.set(terrain.maxXY, 0, Math.random());
+  terrain.set(0, terrain.maxXY, Math.random());
+  terrain.set(terrain.maxXY, terrain.maxXY, Math.random());
 
   const square = (x, y, size, offset) => {
     const avg = average([
