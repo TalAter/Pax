@@ -1,5 +1,5 @@
 {
-  "name": "ptt",
+  "name": "pax",
   "version": "0.1.0",
   "description": "Push comes to shove",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TalAter/ptt.git"
+    "url": "git+https://github.com/TalAter/pax.git"
   },
   "keywords": [
     "push"
@@ -17,9 +17,9 @@
   "author": "Tal Ater <tal@talater.com> (https://www.talater.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TalAter/ptt/issues"
+    "url": "https://github.com/TalAter/pax/issues"
   },
-  "homepage": "https://github.com/TalAter/ptt#readme",
+  "homepage": "https://github.com/TalAter/pax#readme",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.9",

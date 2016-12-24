@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
-    filename: 'ptt.js',
+    filename: 'pax.js',
     sourceMapFilename: '[file].map'
   },
   module: {
@@ -36,7 +36,7 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(true),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      scriptFilename: 'ptt.js',
+      scriptFilename: 'pax.js',
       template: path.resolve(__dirname, 'src/index.html'),
       minify: {
         collapseWhitespace: true
