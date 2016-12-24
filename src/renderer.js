@@ -33,7 +33,7 @@ const init = function() {
   geometry.computeFlatVertexNormals();
   // geometry.computeVertexNormals();
 
-  let material = new THREE.MeshLambertMaterial({ color: 0xd6410b, shading: THREE.SmoothShading });
+  let material = new THREE.MeshLambertMaterial({ color: 0xce985b, shading: THREE.SmoothShading });
   let mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
