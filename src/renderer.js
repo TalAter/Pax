@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import Terrain from './terrain';
 
 var scene, camera, renderer;
 
@@ -16,11 +15,19 @@ const init = function() {
   renderer = new THREE.WebGLRenderer({alpha: true});
   renderer.setSize(width, height);
 
-  // Create some random terrain
-  const detailLevel = 8;
-  let terrain = Terrain.generate(detailLevel);
+  let ambientLight = new THREE.AmbientLight(0x999999);
+  scene.add(ambientLight);
 
-  let geometry = new THREE.PlaneGeometry(800, 800, terrain.maxXY, terrain.maxXY);
+  let directionalLight = new THREE.DirectionalLight(0x777777);
+  directionalLight.position.set(3, 7, 6);
+  directionalLight.position.normalize();
+  scene.add(directionalLight);
+
+  document.body.appendChild(renderer.domElement);
+};
+
+const addPlane = (dimensionX, dimensionY, terrain) => {
+  let geometry = new THREE.PlaneGeometry(dimensionX, dimensionY, terrain.maxXY, terrain.maxXY);
   geometry.rotateX(-Math.PI / 2);
 
   let vertices = geometry.vertices;
@@ -36,16 +43,6 @@ const init = function() {
   let material = new THREE.MeshLambertMaterial({ color: 0xce985b, shading: THREE.SmoothShading });
   let mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
-
-  let ambientLight = new THREE.AmbientLight(0x999999);
-  scene.add(ambientLight);
-
-  let directionalLight = new THREE.DirectionalLight(0x777777);
-  directionalLight.position.set(3, 7, 6);
-  directionalLight.position.normalize();
-  scene.add(directionalLight);
-
-  document.body.appendChild(renderer.domElement);
 };
 
 const render = function() {
@@ -62,5 +59,6 @@ const setBackgroundColor = function(color) {
 export default {
   render,
   init,
-  setBackgroundColor
+  setBackgroundColor,
+  addPlane,
 };

@@ -1,10 +1,17 @@
 import renderer from './renderer';
+import Terrain from './terrain';
 
 /**
  * Initialize the game
  */
 const init = function() {
   renderer.init();
+
+  // Generate some random terrain
+  const detailLevel = 8;
+  const terrain = Terrain.generate(detailLevel);
+  renderer.addPlane(800, 800, terrain);
+
   requestAnimationFrame(update);
 };
 
