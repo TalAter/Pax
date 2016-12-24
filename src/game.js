@@ -5,7 +5,6 @@ import renderer from './renderer';
  */
 const init = function() {
   renderer.init();
-  renderer.setBackgroundColor(0xffddbb);
   requestAnimationFrame(update);
 };
 

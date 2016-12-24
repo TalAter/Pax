@@ -13,7 +13,7 @@ const init = function() {
   camera.position.set(200, 300, 200);
   camera.lookAt(scene.position);
 
-  renderer = new THREE.WebGLRenderer();
+  renderer = new THREE.WebGLRenderer({alpha: true});
   renderer.setSize(width, height);
 
   // Create some random terrain
@@ -33,7 +33,7 @@ const init = function() {
   geometry.computeFlatVertexNormals();
   // geometry.computeVertexNormals();
 
-  let material = new THREE.MeshLambertMaterial({ color: 0xdd8888, shading: THREE.SmoothShading });
+  let material = new THREE.MeshLambertMaterial({ color: 0xd6410b, shading: THREE.SmoothShading });
   let mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
