@@ -17,18 +17,17 @@ const init = function() {
   renderer.setSize(width, height);
 
   // Create some random terrain
-  const resolution = 100;
-  let terrain = Terrain.generate(resolution);
-  console.log(terrain);
+  const detailLevel = 8;
+  let terrain = Terrain.generate(detailLevel);
 
-  let geometry = new THREE.PlaneGeometry(2500, 2500, resolution-1, resolution-1);
+  let geometry = new THREE.PlaneGeometry(800, 800, terrain.maxXY, terrain.maxXY);
   geometry.rotateX(-Math.PI / 2);
 
   let vertices = geometry.vertices;
-  for (let x = 0; x < resolution; x++) {
-    for (let y = 0; y < resolution; y++) {
-      let vertexId = x + y * (resolution);
-      vertices[vertexId].y = terrain.get(x, y)*30;
+  for (let y = 0; y <= terrain.maxXY; y++) {
+    for (let x = 0; x <= terrain.maxXY; x++) {
+      let vertexId = x + y * (terrain.maxXY + 1);
+      vertices[vertexId].y = terrain.get(x, y);
     }
   }
   geometry.computeFlatVertexNormals();
